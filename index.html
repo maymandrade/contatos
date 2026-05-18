@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
+    <script src="./app.js" defer type="module"></script>
+    <title>Contatos</title>
+</head>
+
+<body class="min-h-screen flex flex-col items-center gap-6" style="background-color: #89CFF0">
+
+    <div class="text-white text-[48px]">Criar conta</div>
+    <div class="flex flex-col justify-center gap-4 w-80 mg-35">
+        <div class="flex items-center justify-center gap-4 w-80 mg-35">
+            <input id="nome" class="bg-white text-grey w-50 h-10 p-3" type="text" placeholder="Nome">
+            <input id="telefone" class="bg-white text-grey w-50 h-10 p-3" type="text" placeholder="telefone">
+        </div>
+        <div class="flex items-center justify-center gap-4 w-80 mg-35">
+            <input id="email" class="bg-white text-grey w-50 h-10 p-3" type="email" placeholder="Email">
+            <input id="senha" class="bg-white text-grey w-50 h-10 p-3" type="password" placeholder="Senha">
+        </div>
+
+    </div>
+    <div class="flex justify-end w-190">
+        <button id="botao-cadastrar" class="border-2 border-white cursor-pointer text-white h-10 w-40 rounded-3xl">
+            SALVAR</button>
+    </div>
+    <hr class="border-t border-white w-full ">
+
+    <table class=" fixed top-90 left-70 items-center justify-center border-1" style="background-color: brown;">
+        <thead>
+            <tr id="cabeçalho">
+                <th class="bg-white w-10 h-10 p-3 border-1">ID</th>
+                <th class="bg-white w-20 h-10 p-3 border-1">Nome</th>
+                <th class="bg-white w-20 h-10 p-3 border-1">E-mail</th>
+                <th class="bg-white w-50 h-10 p-3 border-1">Ação</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr id="itens">
+                <td class="bg-white w-10 h-10 p-3 border-1"></td>
+                <td class="bg-white w-20 h-10 p-3 border-1"></td>
+                <td class="bg-white w-20 h-10 p-3 border-1"></td>
+                <td class="bg-white w-50 h-14 p-3 flex justify-center gap-4">
+                    <button class="border-1 p-3 items-center flex cursor-pointer">Atualizar</button>
+                    <button class="border-1 p-3 items-center flex cursor-pointer">Deletar</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+</body>
+
+</html>
