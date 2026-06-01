@@ -12,52 +12,111 @@
     <title>Contatos</title>
 </head>
 
-<body class="min-h-screen flex flex-col items-center gap-6" style="background-color: #98d6f3">
+<body class="min-h-screen flex flex-col items-center gap-8 px-6 py-10 font-['Red_Hat_Display']"
+    style="background-color: #98d6f3">
 
-    <div class="text-white text-[48px]">Lista de Contatos</div>
-    <div class="flex flex-col gap-4  mg-35">
-        <div class="flex items-center justify-center gap-4 w-200 mg-35">
-            <input id="nome" class="bg-white text-grey w-200 h-10 p-3 " type="text" placeholder="Nome">
-            <input id="telefone" class="bg-white text-grey w-200 h-10 p-3" type="text" placeholder="telefone">
+    <!-- Título -->
+    <header class="text-center">
+        <h1 class="text-white text-5xl font-bold drop-shadow-md">
+            Lista de Contatos
+        </h1>
+        <p class="text-white text-lg mt-2">
+            Cadastre, atualize e exclua seus contatos
+        </p>
+    </header>
+
+    <!-- Formulário -->
+    <section class="bg-white/40 backdrop-blur-md rounded-3xl shadow-lg p-8 w-full max-w-5xl flex flex-col gap-5">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input id="nome"
+                class="bg-white text-gray-700 h-12 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-400"
+                type="text" placeholder="Nome">
+
+            <input id="telefone"
+                class="bg-white text-gray-700 h-12 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-400"
+                type="text" placeholder="Telefone">
         </div>
-        <div class="flex items-center justify-center gap-4 w-200 mg-35">
-            <input id="email" class="bg-white text-grey w-200 h-10 p-3" type="email" placeholder="Email">
-            <input id="senha" class="bg-white text-grey w-200 h-10 p-3" type="password" placeholder="Senha">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input id="email"
+                class="bg-white text-gray-700 h-12 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-400"
+                type="email" placeholder="E-mail">
+
+            <input id="senha"
+                class="bg-white text-gray-700 h-12 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-400"
+                type="password" placeholder="Senha">
         </div>
 
-    </div>
-    <div class="flex justify-end w-190">
-        <button id="botao-cadastrar" class="border-2 border-white cursor-pointer text-white h-10 w-40 rounded-3xl">
-            SALVAR</button>
-    </div>
-    <hr class="border-t border-white w-full ">
+        <div class="preview-container items-center gap-3 w-40">
+            <input id="preview-input" class="hidden" type="file" accept="image/*">
 
-    <table class=" fixed top-90 w-200 items-center justify-center border-1 border-gray-400" style="background-color: brown;">
-        <thead>
-            <tr id="cabeçalho">
-                <th class="bg-white w-10 h-10 p-3 border-1 border-gray-400">ID</th>
-                <th class="bg-white w-10 h-10 p-3 border-1 border-gray-400">Foto</th>
-                <th class="bg-white w-20 h-10 p-3 border-1 border-gray-400">Nome</th>
-                <th class="bg-white w-20 h-10 p-3 border-1 border-gray-400">E-mail</th>
-                <th class="bg-white w-50 h-10 p-3 border-1 border-gray-400">Ação</th>
-            </tr>
-        </thead>
+            <!-- ao clicar na imagem, abre o input file -->
+            <label for="preview-input" class="cursor-pointer">
+                <img id="preview-image" class="w-40 h-40 object-cover rounded-full border-2 border-white shadow-md"
+                    src="./img/upload-icon.svg" alt="Clique para enviar uma imagem">
+            </label>
 
-        <tbody>
-            <tr id="itens">
-                <td class="bg-white w-10 h-10 p-3 border-1 border-gray-400"></td>
-                <td class="bg-white w-20 h-10 p-3 border-1 border-gray-400"></td>
-                <td class="bg-white w-20 h-10 p-3 border-1 border-gray-400"></td>
-                <td class="bg-white w-20 h-10 p-3 border-1 border-gray-400"></td>
-                <td class="bg-white h-14 p-3 flex justify-center gap-4 border-gray-400" >
-                    <button class="border-1 p-3 items-center flex cursor-pointer border-gray-400">Atualizar</button>
-                    <button class="border-1 p-3 items-center flex cursor-pointer border-gray-400">Deletar</button>
-                </td>
-            </tr>
-        </tbody>
+        </div>
 
-    </table>
+        <div class="flex justify-end">
+            <button id="botao-cadastrar"
+                class="bg-blue-500 hover:bg-blue-600 transition text-white font-bold h-12 w-40 rounded-full cursor-pointer shadow-md">
+                SALVAR
+            </button>
+        </div>
 
+    </section>
+
+    <!-- Linha -->
+    <hr class="border-t border-white/70 w-full max-w-6xl">
+
+    <!-- Tabela -->
+    <section class="w-full max-w-6xl bg-white rounded-3xl shadow-lg overflow-hidden">
+
+        <table class="w-full border-collapse text-center">
+            <thead>
+                <tr class="bg-blue-500 text-white">
+                    <th class="p-4">ID</th>
+                    <th class="p-4">Foto</th>
+                    <th class="p-4">Nome</th>
+                    <th class="p-4">E-mail</th>
+                    <th class="p-4">Ação</th>
+                </tr>
+            </thead>
+
+            <tbody id="lista-contatos">
+                <tr class="border-b border-gray-200 hover:bg-blue-50 transition">
+                    <td class="p-4">1</td>
+
+                    <td class="p-4">
+                        <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto flex items-center justify-center">
+                            <i class="fa-solid fa-user text-gray-600"></i>
+                        </div>
+                    </td>
+
+                    <td class="p-4 text-gray-700 font-medium">May</td>
+
+                    <td class="p-4 text-gray-600">may@email.com</td>
+
+                    <td class="p-4">
+                        <div class="flex justify-center gap-3">
+                            <button
+                                class="bg-yellow-400 hover:bg-yellow-500 transition text-white px-4 py-2 rounded-full cursor-pointer">
+                                Atualizar
+                            </button>
+
+                            <button
+                                class="bg-red-500 hover:bg-red-600 transition text-white px-4 py-2 rounded-full cursor-pointer">
+                                Deletar
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </section>
 
 </body>
 
