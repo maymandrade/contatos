@@ -48,16 +48,8 @@
                 type="password" placeholder="Senha">
         </div>
 
-        <div class="preview-container items-center gap-3 w-40">
-            <input id="preview-input" class="hidden" type="file" accept="image/*">
-
-            <!-- ao clicar na imagem, abre o input file -->
-            <label for="preview-input" class="cursor-pointer">
-                <img id="preview-image" class="w-40 h-40 object-cover rounded-full border-2 border-white shadow-md"
-                    src="./img/upload-icon.svg" alt="Clique para enviar uma imagem">
-            </label>
-
-        </div>
+        <input type="text" placeholder="URL foto" id="foto"
+            class="bg-white text-gray-700 h-12 p-4 rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
 
         <div class="flex justify-end">
             <button id="botao-cadastrar"
